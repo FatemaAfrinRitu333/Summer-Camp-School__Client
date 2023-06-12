@@ -4,12 +4,12 @@ import bg from "../../../assets/music-sheet-bg.jpg";
 import { TiTick } from "react-icons/ti";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
-import { FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaSignInAlt } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from 'sweetalert2'
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../../Shared/SocialLogin/SocialLogin";
 
 const Registration = () => {
@@ -46,6 +46,7 @@ const Registration = () => {
     formState: { errors },
     reset,
   } = useForm();
+
   const onSubmit = (data) => {
     // console.log(data);
     if(data.password !== data.confirmPassword) {
@@ -98,9 +99,10 @@ const Registration = () => {
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="card text-center text-neutral-content">
           <div className="card-body md:w-[700px] shadow-2xl bg-base-200/80 rounded-xl my-5">
+            <h2 className="text-3xl text-green-800 text-center font-bold flex items-center justify-center gap-2 mt-3"><FaSignInAlt/> Register</h2>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="p-12 w-full grid gap-4"
+              className="md:p-12 w-full grid gap-4"
             >
               <div className="form-control">
                 <TextField
@@ -158,8 +160,8 @@ const Registration = () => {
               </div>
               {errors.password && (
                 <span className="text-red-600 font-thin text-sm">
-                  Make sure to include at least one Capital, one small, one
-                  special and one number in your password!
+                  Make sure to include at least one capital, one small, one
+                  special, one number and 6characters in your password!
                 </span>
               )}
               <div className="form-control">
@@ -218,6 +220,9 @@ const Registration = () => {
                 O R
               </Divider>
               <SocialLogin></SocialLogin>
+              <div>
+                <p className="text-slate-500">Already have an account? <Link to='/login' className="font-semibold">Log In here!</Link></p>
+            </div>
           </div>
         </div>
       </div>

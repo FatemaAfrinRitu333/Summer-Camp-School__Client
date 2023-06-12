@@ -132,7 +132,7 @@ const Header = () => {
                   <img src={user?.photoURL} />
                 </div>
               ) : (
-                <Link to='/register'>
+                <Link to='/login'>
                   <button className="btn btn-xs btn-ghost btn-circle text-green-800">
                     Login
                   </button>
