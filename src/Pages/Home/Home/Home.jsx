@@ -10,9 +10,7 @@ const Home = () => {
       <Helmet>
         <title>Chorus Camp</title>
       </Helmet>
-      <Header></Header>
       <Banner></Banner>
-      <Footer></Footer>
     </div>
   );
 };

@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import logo from "../../assets/logo.png";
 import { HiOutlineUserPlus } from "react-icons/hi2";
+import Swal from "sweetalert2";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, LogOut } = useContext(AuthContext);
   console.log(user);
   const list = (
     <>
@@ -25,6 +26,20 @@ const Header = () => {
       )}
     </>
   );
+
+  const handleLogOut = () => {
+    LogOut()
+      .then(() => {
+        Swal.fire("Success!", "You are logged out!!", "success");
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.message}`,
+        });
+      });
+  };
 
   return (
     <div className="navbar bg-gradient-to-r from-base-100/50 to-warning/30 drop-shadow-lg rounded-md">
@@ -117,9 +132,11 @@ const Header = () => {
                   <img src={user?.photoURL} />
                 </div>
               ) : (
-                <button className="btn btn-xs btn-ghost btn-circle text-green-800">
-                  Login
-                </button>
+                <Link to='/register'>
+                  <button className="btn btn-xs btn-ghost btn-circle text-green-800">
+                    Login
+                  </button>
+                </Link>
               )}
             </label>
             {user && (
@@ -130,7 +147,7 @@ const Header = () => {
                 <>
                   <li>{user?.displayName}</li>
                   <button
-                    // onClick={handleLogOut}
+                    onClick={handleLogOut}
                     className="btn btn-ghost hover:btn-error"
                   >
                     <Link className="p-0">LogOut</Link>
