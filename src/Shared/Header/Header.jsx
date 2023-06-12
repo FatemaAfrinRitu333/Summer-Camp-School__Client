@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 import logo from "../../assets/logo.png";
-import {HiOutlineUserPlus} from 'react-icons/hi2'
+import { HiOutlineUserPlus } from "react-icons/hi2";
 
 const Header = () => {
-  const user = false;
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const list = (
     <>
       <li>
@@ -15,20 +18,24 @@ const Header = () => {
       <li>
         <Link>Classes</Link>
       </li>
-      <li>
-        <Link>Dashboard</Link>
-      </li>
+      {user && (
+        <li>
+          <Link>Dashboard</Link>
+        </li>
+      )}
     </>
   );
 
   return (
     <div className="navbar bg-gradient-to-r from-base-100/50 to-warning/30 drop-shadow-lg rounded-md">
       <div className="navbar-start">
-        <Link className="flex items-center gap-1" to='/'>
+        <Link className="flex items-center gap-1" to="/">
           <span>
             <img src={logo} className="w-10" alt="" />
           </span>
-          <span className="text-lg md:text-2xl font-bold text-green-800">Chorus Camp</span>
+          <span className="text-lg md:text-2xl font-bold text-green-800">
+            Chorus Camp
+          </span>
         </Link>
       </div>
       <div className="navbar-end">
@@ -105,18 +112,23 @@ const Header = () => {
           </div>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-[30px] rounded-full">
-              {user ? <img src={user?.photoURL} /> : <HiOutlineUserPlus className="text-2xl text-primary"/> }
-                
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-max  px-4"
-            >
               {user ? (
+                <div className="w-[30px] rounded-full">
+                  <img src={user?.photoURL} />
+                </div>
+              ) : (
+                <button className="btn btn-xs btn-ghost btn-circle text-green-800">
+                  Login
+                </button>
+              )}
+            </label>
+            {user && (
+              <ul
+                tabIndex={0}
+                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-max  px-4"
+              >
                 <>
-                  {/* <li>{user.displayName}</li> */}
+                  <li>{user?.displayName}</li>
                   <button
                     // onClick={handleLogOut}
                     className="btn btn-ghost hover:btn-error"
@@ -124,14 +136,8 @@ const Header = () => {
                     <Link className="p-0">LogOut</Link>
                   </button>
                 </>
-              ) : (
-                <button>
-                  <Link className="p-0" to="/login">
-                    Login
-                  </Link>
-                </button>
-              )}
-            </ul>
+              </ul>
+            )}
           </div>
         </div>
       </div>
