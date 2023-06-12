@@ -1,31 +1,34 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import PersonIcon from '@mui/icons-material/Person';
+import {HiOutlineUserPlus} from 'react-icons/hi2'
 
 const Header = () => {
-  const user = true;
+  const user = false;
   const list = (
     <>
       <li>
-        <Link>Item 1</Link>
+        <Link>Home</Link>
       </li>
       <li>
-        <Link>Parent</Link>
+        <Link>Instructors</Link>
       </li>
       <li>
-        <Link>Item 3</Link>
+        <Link>Classes</Link>
+      </li>
+      <li>
+        <Link>Dashboard</Link>
       </li>
     </>
   );
 
   return (
-    <div className="navbar bg-base-200 drop-shadow-lg rounded-md">
+    <div className="navbar bg-gradient-to-r from-base-100/50 to-warning/30 drop-shadow-lg rounded-md">
       <div className="navbar-start">
-        <Link className="flex items-center" to='/'>
+        <Link className="flex items-center gap-1" to='/'>
           <span>
-            <img src={logo} className="w-14" alt="" />
+            <img src={logo} className="w-10" alt="" />
           </span>
-          <span className="text-lg md:text-2xl font-bold text-primary">Chorus Camp</span>
+          <span className="text-lg md:text-2xl font-bold text-green-800">Chorus Camp</span>
         </Link>
       </div>
       <div className="navbar-end">
@@ -34,7 +37,7 @@ const Header = () => {
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-primary"
+                className="h-5 w-5 text-green-800"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -64,7 +67,7 @@ const Header = () => {
               <div className="indicator">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-primary"
+                  className="h-5 w-5 text-green-800"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -103,7 +106,8 @@ const Header = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-[30px] rounded-full">
-                <img src={user ? user.photoURL : ""} />
+              {user ? <img src={user?.photoURL} /> : <HiOutlineUserPlus className="text-2xl text-primary"/> }
+                
               </div>
             </label>
             <ul
