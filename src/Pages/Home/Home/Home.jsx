@@ -4,6 +4,7 @@ import Header from "../../../Shared/Header/Header";
 import Banner from "../Banner/Banner";
 import Footer from "../../../Shared/Footer/Footer";
 import Classes from "../Classes/Classes";
+import Instructors from "../Instructors/Instructors";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       </Helmet>
       <Banner></Banner>
       <Classes></Classes>
+      <Instructors></Instructors>
     </div>
   );
 };
