@@ -5,6 +5,7 @@ import Banner from "../Banner/Banner";
 import Footer from "../../../Shared/Footer/Footer";
 import Classes from "../Classes/Classes";
 import Instructors from "../Instructors/Instructors";
+import Consulting from "../Consulting/Consulting";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Banner></Banner>
       <Classes></Classes>
       <Instructors></Instructors>
+      <Consulting></Consulting>
     </div>
   );
 };

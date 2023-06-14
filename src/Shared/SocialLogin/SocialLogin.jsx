@@ -18,7 +18,7 @@ const SocialLogin = () => {
         console.log(loggedUser);
 
         // const saveUser = { name: loggedUser.name, email: loggedUser.email };
-        //     fetch(`http://localhost:5000/users`, {
+        //     fetch(`https://summer-camp-school-server-production.up.railway.app/users`, {
         //       method: "POST",
         //       headers: {
         //         "content-type": "application/json",

@@ -2,12 +2,18 @@ import React from "react";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 import useClasses from "../../../Hooks/useClasses";
 import ClassItem from "./ClassItem";
+import Skeleton from '@mui/material/Skeleton';
 
 
 const Classes = () => {
   
-    const [classes] = useClasses();
+    const [classes, isLoading] = useClasses();
     console.log(classes)
+
+    if(isLoading){
+      return <Skeleton variant="rectangular" width="100%">
+    </Skeleton>
+    }
 
   return (
     <div className="my-20">

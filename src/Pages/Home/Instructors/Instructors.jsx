@@ -1,11 +1,17 @@
 import useInstructors from '../../../Hooks/useInstructors';
 import SectionTitle from '../../../Shared/SectionTitle/SectionTitle'
 import InstructorItem from './InstructorItem';
+import Skeleton from '@mui/material/Skeleton';
 
 const Instructors = () => {
 
-    const [instructors] = useInstructors();
+    const [instructors, isLoading] = useInstructors();
     console.log(instructors);
+
+    if(isLoading){
+        return <Skeleton variant="rectangular" width="100%">
+      </Skeleton>
+    }
 
     return (
         <div className='my-20'>
