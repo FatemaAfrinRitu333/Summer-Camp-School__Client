@@ -14,11 +14,11 @@ export default {
 
           accent: "#f6f9c8",
 
-          neutral: "#191a3e",
+          neutral: "#7D7170",
 
           "base-100": "#ffffff",
 
-          info: "#cae2e8",
+          info: "#082f497c",
 
           success: "#dff2a1",
 
