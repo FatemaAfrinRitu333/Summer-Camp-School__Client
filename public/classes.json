@@ -1,0 +1,69 @@
+[
+    {
+      "photo": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "title": "Violin Class",
+      "activities": ["Playing classical pieces", "Improvisation techniques", "Ensemble performances"],
+      "studentsEnrolled": 250,
+      "duration": "6 weeks",
+      "requirements": "No prior experience required. Instruments provided.",
+      "instructorName": "Professor Amelia Johnson",
+      "availableSeats": 150,
+      "cost": "$200"
+    },
+    {
+      "photo": "https://images.unsplash.com/photo-1575314113965-c6672a42b99c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "title": "Piano Class",
+      "activities": ["Music theory", "Scales and arpeggios", "Solo and duet performances"],
+      "studentsEnrolled": 300,
+      "duration": "8 weeks",
+      "requirements": "Open to all skill levels. Keyboards provided.",
+      "instructorName": "Maestro Daniel Thompson",
+      "availableSeats": 100,
+      "cost": "$250"
+    },
+    {
+      "photo": "https://images.unsplash.com/photo-1611927264378-faced7a32de9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "title": "Cello Class",
+      "activities": ["Bow technique", "Chamber music", "Expressive phrasing"],
+      "studentsEnrolled": 180,
+      "duration": "6 weeks",
+      "requirements": "Prior basic music knowledge required. Instruments provided.",
+      "instructorName": "Dr. Olivia Rodriguez",
+      "availableSeats": 220,
+      "cost": "$300"
+    },
+    {
+      "photo": "https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+      "title": "Guitar Class",
+      "activities": ["Chord progressions", "Strumming patterns", "Song accompaniment"],
+      "studentsEnrolled": 120,
+      "duration": "4 weeks",
+      "requirements": "Suitable for beginners. Guitars available for use.",
+      "instructorName": "Mr. Benjamin Foster",
+      "availableSeats": 280,
+      "cost": "$150"
+    },
+    {
+      "photo": "https://images.unsplash.com/photo-1502205403960-618401e1ad98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2013&q=80",
+      "title": "Harp Class",
+      "activities": ["Finger technique", "Harmonics", "Solo repertoire"],
+      "studentsEnrolled": 200,
+      "duration": "8 weeks",
+      "requirements": "No prior experience required. Harps provided.",
+      "instructorName": "Ms. Sophia Anderson",
+      "availableSeats": 200,
+      "cost": "$350"
+    },
+    {
+      "photo": "https://images.unsplash.com/photo-1676912004492-0fa09f28fe2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "title": "Drum Class",
+      "activities": ["Rudiments", "Groove patterns", "Jazz and rock drumming"],
+      "studentsEnrolled": 350,
+      "duration": "6 weeks",
+      "requirements": "Open to all skill levels. Drum sets available.",
+      "instructorName": "Mr. Michael Davis",
+      "availableSeats": 50,
+      "cost": "$180"
+    }
+  ]
+  
