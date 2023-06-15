@@ -8,9 +8,15 @@ import { FaGoogle, FaSignInAlt } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../../Shared/SocialLogin/SocialLogin";
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const Registration = () => {
   const gender = [
@@ -32,12 +38,18 @@ const Registration = () => {
     },
   ];
   const [passMatch, setPassMatch] = useState(false);
-
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation;
-  const from = location?.state?.from?.pathname || '/';
-
+  const from = location?.state?.from?.pathname || "/";
+  const [open, setOpen] = useState(false);
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpen(false);
+    };
 
   const {
     register,
@@ -49,35 +61,62 @@ const Registration = () => {
 
   const onSubmit = (data) => {
     // console.log(data);
-    if(data.password !== data.confirmPassword) {
+    if (data.password !== data.confirmPassword) {
       return Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Password didn't match!",
       });
     }
-    createUser(data.email, data.password)
-    .then(result=>{
-        const loggedUser = result.user;
-        console.log(loggedUser)
-        Swal.fire(
-            'Good job!',
-            'You are successfully logged in!!',
-            'success'
-          )
-          reset();
-          navigate(from, {replace: true});
 
-        updateUserProfile(data.name, data.photo)
-    })
-    .catch(error=>{
-        console.log(error)
-        Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: `${error.message}`,
+    createUser(data.email, data.password)
+      .then((result) => {
+        const loggedUser = result.user;
+        loggedUser.displayName = data.name;
+        loggedUser.photoURL = data.photo;
+        // console.log(loggedUser);
+        const saveUser = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+          role: "",
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.insertedId) {
+              reset();
+              <Snackbar
+                open={open}
+                autoHideDuration={4000}
+                onClose={handleClose}
+              >
+                <Alert
+                  onClose={handleClose}
+                  severity="success"
+                  sx={{ width: "100%" }}
+                >
+                  This is a success message!
+                </Alert>
+              </Snackbar>
+              navigate(from, {replace: true})
+            }
           });
-    })
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.message}`,
+        });
+      });
   };
 
   const password = watch("password", "");
@@ -99,7 +138,9 @@ const Registration = () => {
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="card text-center text-neutral-content">
           <div className="card-body md:w-[700px] shadow-2xl bg-base-200/80 rounded-xl my-5">
-            <h2 className="text-3xl text-green-800 text-center font-bold flex items-center justify-center gap-2 mt-3"><FaSignInAlt/> Register</h2>
+            <h2 className="text-3xl text-green-800 text-center font-bold flex items-center justify-center gap-2 mt-3">
+              <FaSignInAlt /> Register
+            </h2>
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="md:p-12 w-full grid gap-4"
@@ -216,12 +257,17 @@ const Registration = () => {
                 </button>
               </div>
             </form>
-              <Divider textAlign="left" className="text-red-500">
-                O R
-              </Divider>
-              <SocialLogin></SocialLogin>
-              <div>
-                <p className="text-slate-500">Already have an account? <Link to='/login' className="font-semibold">Log In here!</Link></p>
+            <Divider textAlign="left" className="text-red-500">
+              O R
+            </Divider>
+            <SocialLogin></SocialLogin>
+            <div>
+              <p className="text-slate-500">
+                Already have an account?{" "}
+                <Link to="/login" className="font-semibold">
+                  Log In here!
+                </Link>
+              </p>
             </div>
           </div>
         </div>

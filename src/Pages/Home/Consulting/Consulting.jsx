@@ -48,9 +48,7 @@ const Consulting = () => {
                       label="Your Message"
                       required
                     />
-                    <Button variant="contained" endIcon={<IoSend />}>
-                      Send
-                    </Button>
+                    <button className="btn bg-green-700 border-0 text-white">Send <IoSend/></button>
                   </Box>
                 </div>
               </div>

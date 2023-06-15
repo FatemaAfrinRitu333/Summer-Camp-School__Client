@@ -36,14 +36,14 @@ const InstroctorCard = ({ item }) => {
         </div>
         <div className="stats w-full">
           <div className="stat place-items-center">
-            <div className="stat-value text-primary">
+            <div className="stat-value text-primary ">
               {item.numClassesTaken}
             </div>
             <div className="stat-desc">Classes Taken</div>
           </div>
 
           <div className="stat place-items-center">
-            <div className="stat-value text-secondary">
+            <div className="stat-value  text-secondary">
               {item.studentsEnrolled}
             </div>
             <div className="stat-desc text-secondary">Students Enrolled</div>

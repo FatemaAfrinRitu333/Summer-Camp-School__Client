@@ -42,7 +42,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar bg-gradient-to-r from-base-100/50 to-warning/30 drop-shadow-lg rounded-md">
+    <div className="navbar bg-gradient-to-r from-base-100/50 to-warning/30 drop-shadow-lg rounded-md z-50">
       <div className="navbar-start">
         <Link className="flex items-center gap-1" to="/">
           <span>
@@ -53,9 +53,9 @@ const Header = () => {
           </span>
         </Link>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end z-40">
         <div>
-          <div className="dropdown">
+          <div className="dropdown z-40">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 px-6 py-3 space-y-3 shadow bg-success rounded-box w-max uppercase"
+              className="menu menu-compact dropdown-content mt-3 px-6 py-3 space-y-3 shadow bg-success rounded-box w-max uppercase z-30"
             >
               {list}
             </ul>
