@@ -94,7 +94,7 @@ const Registration = () => {
               reset();
               <Snackbar
                 open={open}
-                autoHideDuration={4000}
+                autoHideDuration={9000}
                 onClose={handleClose}
               >
                 <Alert
