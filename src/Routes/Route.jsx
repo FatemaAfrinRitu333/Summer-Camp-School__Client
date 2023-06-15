@@ -4,7 +4,7 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home/Home/Home";
 import Registration from "../Pages/User/Registration/Registration";
 import Login from "../Pages/User/Login/Login";
-import Instructors from "../Pages/Instructors/Instructors";
+import Instructors from "../Pages/AllInstructors/AllInstructors";
 import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 

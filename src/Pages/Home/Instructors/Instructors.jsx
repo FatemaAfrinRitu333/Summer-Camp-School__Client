@@ -7,6 +7,7 @@ const Instructors = () => {
 
     const [instructors, isLoading] = useInstructors();
     console.log(instructors);
+    const popular = instructors.slice(0, 6);
 
     if(isLoading){
         return <Skeleton variant="rectangular" width="100%">
@@ -21,7 +22,7 @@ const Instructors = () => {
             ></SectionTitle>
              <div className='grid grid-cols-1 lg:grid-cols-3 gap-10'>
                 {
-                    instructors.map(instructor=> <InstructorItem
+                    popular.map(instructor=> <InstructorItem
                     key={instructor._id}
                     item={instructor}
                     ></InstructorItem>)
