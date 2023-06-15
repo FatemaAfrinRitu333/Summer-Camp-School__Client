@@ -4,10 +4,14 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import logo from "../../assets/logo.png";
 import { HiOutlineUserPlus } from "react-icons/hi2";
 import Swal from "sweetalert2";
+import useCart from "../../Hooks/useCart";
 
 const Header = () => {
   const { user, LogOut } = useContext(AuthContext);
-  console.log(user);
+  const [cart] = useCart();
+  const total = cart.reduce((sum, item)=>item.cost+sum, 0);
+  // console.log(typeof total);
+  // console.log(user);
   const list = (
     <>
       <li>
@@ -74,14 +78,14 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 px-6 py-3 space-y-3 shadow bg-success rounded-box w-max uppercase z-30"
+              className="menu menu-compact dropdown-content mt-3 px-6 py-3 space-y-3 shadow bg-success rounded-box w-max uppercase z-50"
             >
               {list}
             </ul>
           </div>
         </div>
         <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 space-x-4">{list}</ul>
+          <ul className="menu menu-horizontal px-1 space-x-4 z-50">{list}</ul>
         </div>
         <div className="flex">
           <div className="dropdown dropdown-end">
@@ -102,19 +106,19 @@ const Header = () => {
                   />
                 </svg>
                 <span className="badge badge-sm badge-secondary indicator-item">
-                  {/* {cart?.length || 0} */}
+                  {cart?.length || 0}
                 </span>
               </div>
             </label>
             <div
               tabIndex={0}
-              className="mt-3 card card-compact dropdown-content w-max px-4 bg-neutral shadow"
+              className="mt-3 card card-compact dropdown-content w-max px-4 bg-accent shadow"
             >
               <div className="card-body">
                 <span className="font-bold text-lg">
-                  {/* {cart?.length || 0} Items */}
+                  {cart?.length || 0} Items
                 </span>
-                <span className="text-white">Subtotal: $</span>
+                <span className="text-primary">Subtotal: ${total}</span>
                 <div className="card-actions">
                   <Link to="/dashboard/my-cart">
                     <button className="btn btn-primary btn-outline btn-block">

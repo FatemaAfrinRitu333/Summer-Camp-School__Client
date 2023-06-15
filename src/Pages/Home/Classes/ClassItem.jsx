@@ -26,11 +26,11 @@ const ClassItem = ({ item }) => {
               <div className="stat-value text-xl lg:text-2xl text-red-700">{item.availableSeats}</div>
             </div>
           </div>
-        <div className="card-actions justify-end">
+        {/* <div className="card-actions justify-end">
           <button className="btn btn-info btn-outline flex-none border-0 border-b-2">
             Enroll Now
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

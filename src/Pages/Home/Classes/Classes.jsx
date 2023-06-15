@@ -22,7 +22,7 @@ const Classes = () => {
     <div className="my-20">
       <SectionTitle
         heading={"Summer Classes"}
-        subHeading={"Enroll in our most popular"}
+        subHeading={"Our most popular"}
       ></SectionTitle>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
         {
