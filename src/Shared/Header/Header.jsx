@@ -5,9 +5,13 @@ import logo from "../../assets/logo.png";
 import { HiOutlineUserPlus } from "react-icons/hi2";
 import Swal from "sweetalert2";
 import useCart from "../../Hooks/useCart";
+import useAdmin from "../../Hooks/useAdmin";
+import useInstructor from "../../Hooks/useInstructor";
 
 const Header = () => {
   const { user, LogOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   // const [cart] = useCart();
   // console.log(cart);
   // const total = cart?.reduce((sum, item)=>item.cost+sum, 0);
@@ -22,11 +26,11 @@ const Header = () => {
         <Link to="/instructors">Instructors</Link>
       </li>
       <li>
-        <Link to="classes">Classes</Link>
+        <Link to="/classes">Classes</Link>
       </li>
       {user && (
         <li>
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to={isAdmin? '/dashboard/'}>Dashboard</Link>
         </li>
       )}
     </>

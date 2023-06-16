@@ -23,7 +23,7 @@ const MySelectedClass = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/cart/${item._id}`, {
+        fetch(`https://summer-camp-school-server-production.up.railway.app/cart/${item._id}`, {
           method: "DELETE",
           headers: {
             "content-method": "application/json",

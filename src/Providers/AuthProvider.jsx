@@ -28,9 +28,14 @@ const AuthProvider = ({children}) => {
     const updateUserProfile = (name, photo)=>{
         setLoading(true);
         return updateProfile(auth.currentUser, {
-            displayName: name,
-            photoURL: photo
-        });
+            displayName: name, photoURL: photo
+          }).then(() => {
+            // Profile updated!
+            // ...
+          }).catch((error) => {
+            // An error occurred
+            // ...
+          });
     }
 
     const LogOut = () =>{
@@ -48,7 +53,7 @@ const AuthProvider = ({children}) => {
                     email: currentUser.email
                 }
                 // console.log(loggedUser);
-                fetch('http://localhost:5000/jwt',{
+                fetch('https://summer-camp-school-server-production.up.railway.app/jwt',{
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

@@ -17,7 +17,7 @@ const AddAClass = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-        fetch("http://localhost:5000/users", {
+        fetch("https://summer-camp-school-server-production.up.railway.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -61,6 +61,7 @@ const AddAClass = () => {
                   readOnly: true,
                 }}
                 defaultValue={user?.displayName}
+                label="Name"
                 variant="standard"
                 {...register("name")}
               />

@@ -28,13 +28,6 @@ const Login = () => {
 
   const onSubmit = (data) => {
     // console.log(data);
-    if (data.password !== data.confirmPassword) {
-      return Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Password didn't match!",
-      });
-    }
     LogIn(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;

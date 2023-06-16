@@ -11,12 +11,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../../Shared/SocialLogin/SocialLogin";
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
 
 const Registration = () => {
   const gender = [
@@ -42,14 +37,6 @@ const Registration = () => {
   const navigate = useNavigate();
   const location = useLocation;
   const from = location?.state?.from?.pathname || "/";
-  const [open, setOpen] = useState(false);
-    const handleClose = (event, reason) => {
-      if (reason === 'clickaway') {
-        return;
-      }
-  
-      setOpen(false);
-    };
 
   const {
     register,
@@ -72,15 +59,18 @@ const Registration = () => {
     createUser(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
-        loggedUser.displayName = data.name;
-        loggedUser.photoURL = data.photo;
+        const name = data.name;
+        const photo = data.photo;
+        updateUserProfile(name, photo)
+        .then(()=>{})
+        .catch(error=>console.log(error))
         // console.log(loggedUser);
         const saveUser = {
           name: loggedUser.displayName,
           email: loggedUser.email,
-          role: "",
+          role: "student",
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://summer-camp-school-server-production.up.railway.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -92,19 +82,13 @@ const Registration = () => {
             console.log(data);
             if (data.insertedId) {
               reset();
-              <Snackbar
-                open={open}
-                autoHideDuration={9000}
-                onClose={handleClose}
-              >
-                <Alert
-                  onClose={handleClose}
-                  severity="success"
-                  sx={{ width: "100%" }}
-                >
-                  This is a success message!
-                </Alert>
-              </Snackbar>
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'You are successfully logged in!',
+                showConfirmButton: false,
+                timer: 1500
+              })
               navigate(from, {replace: true})
             }
           });
