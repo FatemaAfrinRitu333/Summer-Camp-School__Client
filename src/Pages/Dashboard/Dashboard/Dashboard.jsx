@@ -11,7 +11,7 @@ import { GiTeacher } from "react-icons/gi";
 
 const Dashboard = () => {
   const isAdmin = false;
-  const isInstructor = false;
+  const isInstructor = true;
 
   return (
     <div className="drawer lg:drawer-open">
@@ -60,10 +60,10 @@ const Dashboard = () => {
           ) : isInstructor ? (
             <>
               <li>
-                <Link to='/dashboard'><AiOutlineAppstoreAdd className="text-green-700 text-2xl me-1" />Add A Class</Link>
+                <Link to='/dashboard/add-aClass'><AiOutlineAppstoreAdd className="text-green-700 text-2xl me-1" />Add A Class</Link>
               </li>
               <li>
-                <Link to='/dashboard'><FaEye className="text-teal-800 text-2xl me-1" />My Classes</Link>
+                <Link to='/dashboard/my-classes'><FaEye className="text-teal-800 text-2xl me-1" />My Classes</Link>
               </li>
             </>
           ) : (
