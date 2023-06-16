@@ -35,6 +35,7 @@ const Header = () => {
   const handleLogOut = () => {
     LogOut()
       .then(() => {
+        localStorage.removeItem('access-token')
         Swal.fire("Success!", "You are logged out!!", "success");
       })
       .catch((error) => {

@@ -8,7 +8,6 @@ import { FaUsers, FaEye, FaHome } from "react-icons/fa";
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { BiChalkboard } from "react-icons/bi";
 import { GiTeacher } from "react-icons/gi";
-import Divider from "@mui/material/Divider";
 
 const Dashboard = () => {
   const isAdmin = false;
@@ -43,7 +42,7 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+        <ul className="menu px-4 pb-12 w-80 h-min lg:h-full bg-base-200 text-base-content">
           <Link className="flex items-center gap-1 justify-center mt-6 mb-12" to="/">
             <span>
               <img src={logo} className="w-10" alt="" />
@@ -94,7 +93,7 @@ const Dashboard = () => {
               </li>
             </>
           )}
-          <div className="divider my-4"></div>
+          <li className="border-b-1 my-4"></li>
           <li>
             <Link className="flex text-xl text-neutral" to="/"><FaHome className="text-2xl me-1" /> Home</Link>
           </li>

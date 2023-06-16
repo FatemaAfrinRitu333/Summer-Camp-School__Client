@@ -44,15 +44,16 @@ const AuthProvider = ({children}) => {
             console.log('Current User: ', currentUser);
             setLoading(false)
             if(currentUser){
-                const user ={
+                const loggedUser ={
                     email: currentUser.email
                 }
+                // console.log(loggedUser);
                 fetch('http://localhost:5000/jwt',{
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
                     },
-                    body: JSON.stringify(user)
+                    body: JSON.stringify(loggedUser)
                 })
                 .then(res=> res.json())
                 .then(data=>{
