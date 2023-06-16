@@ -56,7 +56,7 @@ const AuthProvider = ({children}) => {
                 })
                 .then(res=> res.json())
                 .then(data=>{
-                    console.log('JWT response:', data);
+                    // console.log('JWT response:', data);
                     localStorage.setItem('access-token', data.token);
                 })
             }

@@ -57,7 +57,7 @@ const SocialLogin = () => {
                   This is a success message!
                 </Alert>
               </Snackbar>;
-              navigate(from, { replace: true });
+              navigate(from);
             }
           });
       })

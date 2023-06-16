@@ -9,7 +9,7 @@ import useCart from '../../Hooks/useCart';
 const ClassCard = ({item}) => {
 
   const {_id, cost, title, photo, instructorName,availableSeats,studentsEnrolled,requirements,duration} = item;
-  const [, , refetch] = useCart();
+  const [, refetch] = useCart();
 
   const {user} = useContext(AuthContext);
   const navigate = useNavigate();

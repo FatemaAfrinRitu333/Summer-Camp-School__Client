@@ -2,16 +2,19 @@ import { Helmet } from "react-helmet-async";
 import PageBanner from "../../Shared/PageBanner/PageBanner";
 import ClassCard from "./ClassCard";
 import useClasses from "../../Hooks/useClasses";
-import Skeleton from "@mui/material/Skeleton";
+import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Classes = () => {
   const [classes, isLoading] = useClasses();
-  console.log(classes)
+  console.log(classes);
 
   if (isLoading) {
     return (
       <div className="w-screen h-screen">
-        <Skeleton variant="rectangular" width="100%"></Skeleton>
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress color="secondary" />
+        </Box>
       </div>
     );
   }

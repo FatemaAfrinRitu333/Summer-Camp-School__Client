@@ -8,24 +8,25 @@ import useCart from "../../Hooks/useCart";
 
 const Header = () => {
   const { user, LogOut } = useContext(AuthContext);
-  const [cart] = useCart();
-  const total = cart.reduce((sum, item)=>item.cost+sum, 0);
+  // const [cart] = useCart();
+  // console.log(cart);
+  // const total = cart?.reduce((sum, item)=>item.cost+sum, 0);
   // console.log(typeof total);
   // console.log(user);
   const list = (
     <>
       <li>
-        <Link to='/'>Home</Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to='/instructors'>Instructors</Link>
+        <Link to="/instructors">Instructors</Link>
       </li>
       <li>
-        <Link to='classes'>Classes</Link>
+        <Link to="classes">Classes</Link>
       </li>
       {user && (
         <li>
-          <Link to='/dashboard'>Dashboard</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </li>
       )}
     </>
@@ -46,7 +47,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar bg-gradient-to-r from-base-100/50 to-warning/30 drop-shadow-lg rounded-md z-50">
+    <div className="navbar bg-gradient-to-r from-base-100/50 to-warning/30 drop-shadow-lg rounded-m">
       <div className="navbar-start">
         <Link className="flex items-center gap-1" to="/">
           <span>
@@ -57,9 +58,9 @@ const Header = () => {
           </span>
         </Link>
       </div>
-      <div className="navbar-end z-40">
+      <div className="navbar-end">
         <div>
-          <div className="dropdown z-40">
+          <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,75 +79,33 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 px-6 py-3 space-y-3 shadow bg-success rounded-box w-max uppercase z-50"
+              className="menu menu-compact dropdown-content mt-3 px-6 py-3 space-y-3 shadow bg-success rounded-box uppercase"
             >
               {list}
             </ul>
           </div>
         </div>
         <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 space-x-4 z-50">{list}</ul>
+          <ul className="menu menu-horizontal px-1 space-x-4">{list}</ul>
         </div>
         <div className="flex">
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle">
-              <div className="indicator">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-green-800"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-                <span className="badge badge-sm badge-secondary indicator-item">
-                  {cart?.length || 0}
-                </span>
-              </div>
-            </label>
-            <div
-              tabIndex={0}
-              className="mt-3 card card-compact dropdown-content w-max px-4 bg-accent shadow"
-            >
-              <div className="card-body">
-                <span className="font-bold text-lg">
-                  {cart?.length || 0} Items
-                </span>
-                <span className="text-primary">Subtotal: ${total}</span>
-                <div className="card-actions">
-                  <Link to="/dashboard/my-cart">
-                    <button className="btn btn-primary btn-outline btn-block">
-                      View cart
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              {user ? (
+            {user ? (
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar ms-4">
                 <div className="w-[30px] rounded-full">
                   <img src={user?.photoURL} />
                 </div>
-              ) : (
-                <Link to='/login'>
-                  <button className="btn btn-xs btn-ghost btn-circle text-green-800">
-                    Login
-                  </button>
-                </Link>
-              )}
-            </label>
+              </label>
+            ) : (
+              <Link to="/login">
+                <button className="btn btn-outline px-6 text-green-800 ms-4">Login</button>
+              </Link>
+            )}
+
             {user && (
               <ul
                 tabIndex={0}
-                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-max  px-4"
+                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-max px-4"
               >
                 <>
                   <li>{user?.displayName}</li>

@@ -3,7 +3,8 @@ import useInstructors from "../../Hooks/useInstructors";
 import { Helmet } from "react-helmet-async";
 import PageBanner from "../../Shared/PageBanner/PageBanner";
 import InstroctorCard from "./InstroctorCard";
-import Skeleton from "@mui/material/Skeleton";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const AllInstructors = () => {
   const [instructors, isLoading] = useInstructors();
@@ -11,7 +12,9 @@ const AllInstructors = () => {
   if (isLoading) {
     return (
       <div className="w-screen h-screen">
-        <Skeleton variant="rectangular" width="100%"></Skeleton>
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress color="secondary" />
+        </Box>
       </div>
     );
   }
