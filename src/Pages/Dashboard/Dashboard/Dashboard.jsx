@@ -8,10 +8,12 @@ import { FaUsers, FaEye, FaHome } from "react-icons/fa";
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { BiChalkboard } from "react-icons/bi";
 import { GiTeacher } from "react-icons/gi";
+import useAdmin from "../../../Hooks/useAdmin";
+import useInstructor from "../../../Hooks/useInstructor";
 
 const Dashboard = () => {
-  const isAdmin = false;
-  const isInstructor = true;
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   return (
     <div className="drawer lg:drawer-open">

@@ -9,7 +9,7 @@ const useCart = () => {
         queryKey: ['cart'],
         enabled: !loading,
         queryFn: async()=>{
-            const res = await fetch(`https://summer-camp-school-server-production.up.railway.app/cart?email=${user?.email}`, {headers: {
+            const res = await fetch(`https://chorus-camp-server.onrender.com/cart?email=${user?.email}`, {headers: {
                 authorization: `bearer ${localStorage.getItem('access-token')}`
             }});
             return res.json();

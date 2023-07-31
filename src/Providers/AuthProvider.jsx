@@ -53,7 +53,7 @@ const AuthProvider = ({children}) => {
                     email: currentUser.email
                 }
                 // console.log(loggedUser);
-                fetch('https://summer-camp-school-server-production.up.railway.app/jwt',{
+                fetch('https://chorus-camp-server.onrender.com/jwt',{
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

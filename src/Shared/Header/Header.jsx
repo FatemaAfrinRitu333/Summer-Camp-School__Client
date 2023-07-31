@@ -30,7 +30,7 @@ const Header = () => {
       </li>
       {user && (
         <li>
-          <Link to={isAdmin? '/dashboard/'}>Dashboard</Link>
+          <Link to={isAdmin? '/dashboard/admin-home' : isInstructor? '/dashboard/instructor-home' : '/dashboard/student-home'}>Dashboard</Link>
         </li>
       )}
     </>

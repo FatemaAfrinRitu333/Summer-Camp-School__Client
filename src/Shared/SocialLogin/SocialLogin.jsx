@@ -19,7 +19,7 @@ const SocialLogin = () => {
         console.log(loggedUser);
 
         const saveUser = { name: loggedUser.name, email: loggedUser.email, role: "" };
-        fetch(`https://summer-camp-school-server-production.up.railway.app/users`, {
+        fetch(`https://chorus-camp-server.onrender.com/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -4,7 +4,7 @@ const useClasses = () => {
   const {data:classes=[], isLoading, refetch} = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await fetch("https://summer-camp-school-server-production.up.railway.app/classes");
+      const res = await fetch("https://chorus-camp-server.onrender.com/classes");
       return res.json();
     },
   });

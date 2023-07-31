@@ -5,12 +5,11 @@ import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 const InstructorHome = () => {
     return (
         <div>
-            <div>
             <Helmet>
-                <title>Chorus Camp || Student DashBoard</title>
+                <title>Chorus || Instructor Dashboard</title>
             </Helmet>
-            <SectionTitle heading={'Instructor Dashboard'} subHeading={'welcome to'}></SectionTitle>
-        </div>
+            <SectionTitle heading={'Instructor'} subHeading={'Welcome to instructor dashboard'}></SectionTitle>
+            
         </div>
     );
 };

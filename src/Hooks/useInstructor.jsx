@@ -8,9 +8,10 @@ const useInstructor = () => {
         queryKey: ['isInstructor', user?.email],
         enabled: !loading,
         queryFn: async () =>{
-            const res = await fetch(`https://summer-camp-school-server-production.up.railway.app/users/instructor/${user?.email}`);
-            console.log('instructor response', res);
-            return res.data.admin
+            // TODO: change url to: https://chorus-camp-server.onrender.com
+            const res = await fetch(`http://localhost:5000/users/instructor/${user?.email}`);
+            console.log('instructor response', res.data.instructor);
+            return res.data.instructor
         }
     })
     return [isInstructor, isInstructorLoading];

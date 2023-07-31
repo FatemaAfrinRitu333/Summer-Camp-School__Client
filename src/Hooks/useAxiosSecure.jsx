@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import AuthContext from '../Providers/AuthProvider';
 
 const axiosSecure = axios.create({
-    baseURL: `https://summer-camp-school-server-production.up.railway.app`
+    baseURL: `https://chorus-camp-server.onrender.com`
 });
 
 const useAxiosSecure = () => {

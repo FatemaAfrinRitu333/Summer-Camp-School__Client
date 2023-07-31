@@ -19,7 +19,7 @@ const ClassCard = ({item}) => {
     // console.log(item);
     if(user && user.email){
       const classCart = {classId:_id, title, photo, cost, email:user.email, instructorName}
-      fetch('https://summer-camp-school-server-production.up.railway.app/cart', {
+      fetch('https://chorus-camp-server.onrender.com/cart', {
         method: 'POST',
         headers: {
           "content-type": "application/json"

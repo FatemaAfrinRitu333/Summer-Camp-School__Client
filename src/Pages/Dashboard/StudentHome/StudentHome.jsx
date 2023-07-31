@@ -4,7 +4,7 @@ import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 
 const StudentHome = () => {
     return (
-        <div>
+        <div className='w-full mx-auto mb-12'>
             <Helmet>
                 <title>Chorus Camp || Student DashBoard</title>
             </Helmet>

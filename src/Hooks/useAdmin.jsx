@@ -8,7 +8,8 @@ const useAdmin = () => {
         queryKey: ['isInstructor', user?.email],
         enabled: !loading,
         queryFn: async () =>{
-            const res = await fetch(`https://summer-camp-school-server-production.up.railway.app/admin/instructor/${user?.email}`);
+            // TODO: change url to: https://chorus-camp-server.onrender.com
+            const res = await fetch(`http://localhost:5000/users/admin/${user?.email}`);
             console.log('admin response', res);
             return res.data.admin
         }

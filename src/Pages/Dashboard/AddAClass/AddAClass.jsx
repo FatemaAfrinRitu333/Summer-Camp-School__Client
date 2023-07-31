@@ -17,7 +17,7 @@ const AddAClass = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-        fetch("https://summer-camp-school-server-production.up.railway.app/users", {
+        fetch("https://chorus-camp-server.onrender.com/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
